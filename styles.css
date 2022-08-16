@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+#parent {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  border: 1px solid #000000;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#headingAndContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.Ibutton {
+  background: #f20606;
+}
+
+/* bg color */
+#heading {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: #04035E;
+  background: #ADEEA0;
+}
+
+/* bg color */
+#rendererParent {
+  margin: 10px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border: 1px solid #000000;
+  
+}
+
+#instructionsAndSliders {
+  display: grid;
+  grid-template-rows: 5fr 2fr;
+  height: 100%;
+}
+
+/* bgcolor */
+#detailedInfo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid #000000;
+  font-size: 17px;
+  color: #111111;
+
+}
+
+/* bgcolor */
+#infoDropdown {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+
+#Infotext {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+#graph {
+  width: 990px;
+  height: 593px;
+  display: flex;
+
+}
+
+#graph1 {
+  width: 500px;
+  height: 700px;
+  display: flex;
+}
+#graph2 {
+  width: 300px;
+  height: 50px;
+  display: flex;
+}
