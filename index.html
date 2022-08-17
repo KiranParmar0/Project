@@ -28,61 +28,60 @@
 </head>
 
 <body>
-  <div id="parent">
-    <div id="headingAndContent">
-      <div id="heading">Parabola</div>
-      <h4 id="myOutput"></h4>
-      <div id="rendererParent">
-        <div id="graph" class="jxgbox"></div>
-        <div id="graph2" class="jxgbox"></div>
+  <div id="apex">
+    <div id="leftPane">
+      <div id="leftPaneHeading">
+        <h1>Parabola</h1>
       </div>
+      <div id="graph" class="jxgbox"></div>
     </div>
-    <div id="detailedInfo">
-      <div id="graph1" class="jxgbox"></div>
-      <div id="infoDropdown">
-        <div id="Button" class="container Ibutton">
-          <button type="button" class="btn btn-info btn-lg Ibutton" id="infoDropdown" data-toggle="modal"
-            data-target="#myModal">Instruction</button>
-          <!-- Modal -->
-          <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
-
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <h4 class="modal-title" style="color:red;"> About</h4>
-                <div class="modal-body">
-
-                  <p>1. The dynamic content demonstrates the parabola and its parts..
-                    <br>2. The learner can observe and calculate different parts of the parabola.
-                    <br>3. This activity will help learners to understand and retain the knowledge about parabola and 
-                    its parts like vertex, focus, Axis of symmetry, Directrix, intercepts, focal length, and eccentricity.
-                </div>
-
-                <h4 class="modal-title" style="color:red;"> Instruction</h4>
-
-                <div class="modal-body">
-                  <p>1. Learner can see the parabola and its parts.
-                    <br>2. The buttons provided in the right top corner will help student to view different types and forms of the parabola.
-                    <br>3. Learner can drag the values of a, b, c, p, h, k by using sliders provided at the bottom.
-                    <br>4. Once learners drag any of the values, they can see the change in the parabola as well as the change in the values of its parts.
-                  </p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <div id="rightPane">
+      <div id="rightPaneInstructionsButton">
+        <div id="infoDropdown">
+          <div id="Button" class="container Ibutton">
+            <button type="button" class="btn btn-info btn-lg Ibutton" id="infoDropdown" data-toggle="modal"
+              data-target="#myModal">Instruction</button>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog">
+      
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+      
+                  <h4 class="modal-title" style="color:red;"> About</h4>
+                  <div class="modal-body">
+      
+                    <p>1. The dynamic content demonstrates the parabola and its parts..
+                      <br>2. The learner can observe and calculate different parts of the parabola.
+                      <br>3. This activity will help learners to understand and retain the knowledge about parabola and 
+                      its parts like vertex, focus, Axis of symmetry, Directrix, intercepts, focal length, and eccentricity.
+                  </div>
+      
+                  <h4 class="modal-title" style="color:red;"> Instruction</h4>
+      
+                  <div class="modal-body">
+                    <p>1. Learner can see the parabola and its parts.
+                      <br>2. The buttons provided in the right top corner will help student to view different types and forms of the parabola.
+                      <br>3. Learner can drag the values of a, b, c, p, h, k by using sliders provided at the bottom.
+                      <br>4. Once learners drag any of the values, they can see the change in the parabola as well as the change in the values of its parts.
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-
-
-
       </div>
+      <div id="rightPaneGraphButtons">
+        <div id="graph2" class="jxgbox"></div>
+      </div>
+      <div id="graph1" class="jxgbox"></div>
     </div>
   </div>
 </body>
