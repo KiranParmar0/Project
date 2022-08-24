@@ -517,30 +517,32 @@ function StandardY() {
             }
         }], { strokeWidth: 3, dragToTopOfLayer: true, strokeColor: '#002060' }),
 
-
+        hidePointIfaIsZero = (point) => {
+            if(a.Value() == 0 && point !== undefined) {
+                point.hide()
+            } else if(point !== undefined) {
+                point.show()
+            }
+        },
 
         v = board.create('point', [function () {
-            if (a.Value() == 0) { return 1 / 0 }
-            else {
-                return b.Value()
-            }
+            hidePointIfaIsZero(v)
+            return b.Value()
         }, function () {
-            if (a.Value() == 0) { return 1 / 0 }
-            else {
-                return c.Value()
-            }
+            hidePointIfaIsZero(v)
+            return c.Value()
         }],
             { name: 'V', Color: 'green', size: 3, label: { autoPosition: true, offset: [10, 10] } }),
 
         f = board.create('point', [function () {
-            if (a.Value() == 0) { return 1 / 0 }
+            hidePointIfaIsZero(f)
             return b.Value()
         },
         function () {
-            if (a.Value() == 0) { return 1 / 0 }
+            hidePointIfaIsZero(f)
             return (c.Value() + a.Value())
         }],
-            { name: 'F', Color: '#C42A56', size: 3, label: { autoPosition: true, offset: [10, 10] } }),
+            { name: 'F', Color: '#C42A56', size: 3, label: { autoPosition: true, offset: [10, 10] }, visible: true }),
 
         AX = board.create('line', [v, f], { dash: 4, strokeWidth: 2, strokeColor: '#F67000' }),
 
