@@ -501,18 +501,31 @@ function StandardY() {
             label: { fontSize: 2.5, strokeColor: 'bleck', fontUnit: 'vmin' }
         }),
 
+        altL = board.create('line', [[function() { return b.Value() }, 0], [function() { return b.Value() },100]], {strokeWidth: 3, dragToTopOfLayer: true, strokeColor: '#002060'}),
+
+        isLVisible = false,
+
         // creat a parabola grpah in board 
         L = board.create('functiongraph', [function (x) {
             if (a.Value() == 0 && b.Value() != 0) {
                 //y=b.Value()
                 //x=-b.Value()
-                return x-b.Value()
+                if(L !== undefined && altL !== undefined && isLVisible) {
+                    L.hide()
+                    altL.show()
+                    isLVisible = false
+                }
             }
             else if (a.Value() == 0 && b.Value() == 0) {
                 return 0
             }
 
             else {
+                if(L !== undefined && altL !== undefined && !isLVisible) {
+                    L.show()
+                    altL.hide()
+                    isLVisible = true
+                }
                 return (1 / (4 * a.Value()) * (x - b.Value()) * (x - b.Value()) + c.Value())
             }
         }], { strokeWidth: 3, dragToTopOfLayer: true, strokeColor: '#002060' }),
