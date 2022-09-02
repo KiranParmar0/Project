@@ -189,30 +189,53 @@ function GeneralY() {
         l1 = b1.create('line', [[0.8, -8], [0.7, -8]], { fixed: true, color: 'blue' })
 
     //create notification on the graph  
-    p1.on('over', function (e) { document.getElementById('myOutput').innerHTML = "X- intesect point is x<sub>1</sub> : ( " + p1.X().toFixed(4) + " , " + p1.Y() + ' )'; });
-    p1.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    p1.on('over', function (e) {
+        putEquationInOutputAndReRender(
+            `
+                <math>
+                    <mi>x</mi> <mo>=</mo>
+                    <mrow>
+                        <mfrac>
+                            <mrow>
+                                <mo>−</mo>
+                                <mi>b</mi>
+                                <mo>±</mo>
+                                <msqrt>
+                                    <msup><mi>b</mi><mn>2</mn></msup>
+                                    <mo>−</mo>
+                                    <mn>4</mn><mi>a</mi><mi>c</mi>
+                                </msqrt>
+                            </mrow>
+                            <mrow> <mn>2</mn><mi>a</mi> </mrow>
+                        </mfrac>
+                    </mrow>
+                </math>
+            `
+        )
+    });
+    p1.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    p2.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" X-intercept point is x<sub>2</sub> :  " + "( " + p2.X().toFixed(4) + " , " + p2.Y() + ' )'); });
-    p2.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    p2.on("over", function (e) { document.getElementById('myOutput').innerText = (" X-intercept point is x<sub>2</sub> :  " + "( " + p2.X().toFixed(4) + " , " + p2.Y() + ' )'); });
+    p2.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    p3.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Y-intercept point is y<sub>1</sub> : ( " + p3.X() + " , " + p3.Y().toFixed(2) + ' )'); });
-    p3.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    p3.on("over", function (e) { document.getElementById('myOutput').innerText = (" Y-intercept point is y<sub>1</sub> : ( " + p3.X() + " , " + p3.Y().toFixed(2) + ' )'); });
+    p3.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    q.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Directrix (D) : y  = " + D.Y().toFixed(4)) });
-    q.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    q.on("over", function (e) { document.getElementById('myOutput').innerText = (" Directrix (D) : y  = " + D.Y().toFixed(4)) });
+    q.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    v.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Vertex (V) :  (" + v.X().toFixed(4) + " , " + v.Y().toFixed(4) + ')') });
-    v.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    v.on("over", function (e) { document.getElementById('myOutput').innerText = (" Vertex (V) :  (" + v.X().toFixed(4) + " , " + v.Y().toFixed(4) + ')') });
+    v.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
 
-    f.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Focus (F) : ( " + f.X().toFixed(4) + "  ,  " + f.Y().toFixed(4) + "  )") });
-    f.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    f.on("over", function (e) { document.getElementById('myOutput').innerText = (" Focus (F) : ( " + f.X().toFixed(4) + "  ,  " + f.Y().toFixed(4) + "  )") });
+    f.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    L.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" The equation of parabola is : y = " + a.Value().toFixed(2) + ' x<sup>2</sup> + ' + '(' + b.Value().toFixed(2) + ')' + ' x  + ' + '(' + c.Value().toFixed(2) + '))') });
-    L.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    L.on("over", function (e) { document.getElementById('myOutput').innerText = (" The equation of parabola is : y = " + a.Value().toFixed(2) + ' x<sup>2</sup> + ' + '(' + b.Value().toFixed(2) + ')' + ' x  + ' + '(' + c.Value().toFixed(2) + '))') });
+    L.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    AX.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Axis of symmetry :  x  =  " + f.X().toFixed(4)) });
-    AX.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    AX.on("over", function (e) { document.getElementById('myOutput').innerText = (" Axis of symmetry :  x  =  " + f.X().toFixed(4)) });
+    AX.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
 
 
@@ -414,37 +437,83 @@ function GeneralX() {
         l1 = b1.create('line', [[0.8, -8], [0.7, -8]], { fixed: true, color: 'blue' })
 
     //create notification on the graph  
-    p1.on('over', function (e) { document.getElementById('myOutput').innerHTML = "X- intesect point is x<sub>1</sub> : ( " + p1.X().toFixed(4) + " , " + p1.Y() + ' )'; });
-    p1.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    p1.on('over', function (e) {
+        putEquationInOutputAndReRender(
+            `
+                <math>
+                    <mi>x</mi> <mo>=</mo>
+                    <mrow>
+                        <mfrac>
+                            <mrow>
+                                <mo>−</mo>
+                                <mi>b</mi>
+                                <mo>±</mo>
+                                <msqrt>
+                                    <msup><mi>b</mi><mn>2</mn></msup>
+                                    <mo>−</mo>
+                                    <mn>4</mn><mi>a</mi><mi>c</mi>
+                                </msqrt>
+                            </mrow>
+                            <mrow> <mn>2</mn><mi>a</mi> </mrow>
+                        </mfrac>
+                    </mrow>
+                </math>
+            `
+        )
+    });
+    p1.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    p4.on('over', function (e) { document.getElementById('myOutput').innerHTML = "X- intesect point is x<sub>1</sub> : ( " + p4.X().toFixed(4) + " , " + p4.Y() + ' )'; });
-    p4.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    p4.on('over', function (e) {
+        putEquationInOutputAndReRender(
+            `
+                <math>
+                    <mi>x</mi> <mo>=</mo>
+                    <mrow>
+                        <mfrac>
+                            <mrow>
+                                <mo>−</mo>
+                                <mi>b</mi>
+                                <mo>±</mo>
+                                <msqrt>
+                                    <msup><mi>b</mi><mn>2</mn></msup>
+                                    <mo>−</mo>
+                                    <mn>4</mn><mi>a</mi><mi>c</mi>
+                                </msqrt>
+                            </mrow>
+                            <mrow> <mn>2</mn><mi>a</mi> </mrow>
+                        </mfrac>
+                    </mrow>
+                </math>
+            `
+        )
+    });
+    p4.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    p2.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Y-intercept point is Y<sub>1</sub> :  " + "( " + p2.X() + " , " + p2.Y().toFixed(4) + ' )'); });
-    p2.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    p2.on("over", function (e) { document.getElementById('myOutput').innerText = (" Y-intercept point is Y<sub>1</sub> :  " + "( " + p2.X() + " , " + p2.Y().toFixed(4) + ' )'); });
+    p2.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    p3.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Y-intercept point is y<sub>2</sub> : ( " + p3.X() + " , " + p3.Y().toFixed(2) + ' )'); });
-    p3.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    p3.on("over", function (e) { document.getElementById('myOutput').innerText = (" Y-intercept point is y<sub>2</sub> : ( " + p3.X() + " , " + p3.Y().toFixed(2) + ' )'); });
+    p3.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    q.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Directrix (D) : x  = " + D.X().toFixed(4)) });
-    q.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    q.on("over", function (e) { document.getElementById('myOutput').innerText = (" Directrix (D) : x  = " + D.X().toFixed(4)) });
+    q.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    v.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Vertex (V) :  (" + v.X().toFixed(4) + " , " + v.Y().toFixed(4) + ')') });
-    v.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
-
-
-    f.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Focus (F) : ( " + f.X().toFixed(4) + "  ,  " + f.Y().toFixed(4) + "  )") });
-    f.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
-
-    L.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" The equation of parabola is : x = " + a.Value().toFixed(2) + ' y<sup>2</sup> + ' + '(' + b.Value().toFixed(2) + ')' + ' y  + ' + '(' + c.Value().toFixed(2) + '))') });
-    L.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    v.on("over", function (e) { document.getElementById('myOutput').innerText = (" Vertex (V) :  (" + v.X().toFixed(4) + " , " + v.Y().toFixed(4) + ')') });
+    v.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
 
-    L1.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" The equation of parabola is : x = " + a.Value().toFixed(2) + ' y<sup>2</sup> + ' + '(' + b.Value().toFixed(2) + ')' + ' y  + ' + '(' + c.Value().toFixed(2) + '))') });
-    L1.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    f.on("over", function (e) { document.getElementById('myOutput').innerText = (" Focus (F) : ( " + f.X().toFixed(4) + "  ,  " + f.Y().toFixed(4) + "  )") });
+    f.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    AX.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Axis of symmetry :  x  =  " + f.X().toFixed(4)) });
-    AX.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    L.on("over", function (e) { document.getElementById('myOutput').innerText = (" The equation of parabola is : x = " + a.Value().toFixed(2) + ' y<sup>2</sup> + ' + '(' + b.Value().toFixed(2) + ')' + ' y  + ' + '(' + c.Value().toFixed(2) + '))') });
+    L.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
+
+
+    L1.on("over", function (e) { document.getElementById('myOutput').innerText = (" The equation of parabola is : x = " + a.Value().toFixed(2) + ' y<sup>2</sup> + ' + '(' + b.Value().toFixed(2) + ')' + ' y  + ' + '(' + c.Value().toFixed(2) + '))') });
+    L1.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
+
+    AX.on("over", function (e) { document.getElementById('myOutput').innerText = (" Axis of symmetry :  x  =  " + f.X().toFixed(4)) });
+    AX.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
 
 
@@ -656,30 +725,214 @@ function StandardY() {
         l1 = b1.create('line', [[0.8, -8], [0.7, -8]], { fixed: true, color: 'blue' })
 
     //create notification on the graph  
-    p1.on('over', function (e) { document.getElementById('myOutput').innerHTML = "X- intesect point is x<sub>1</sub> : ( " + p1.X().toFixed(4) + " , " + p1.Y() + ' )'; });
-    p1.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    p1.on('over', function (e) {
+        putEquationInOutputAndReRender(
+            `
+                <math>
+                    <mi>x</mi> <mo>=</mo>
+                    <mrow>
+                        <mfrac>
+                            <mrow>
+                                <mo>−</mo>
+                                <mi>b</mi>
+                                <mo>±</mo>
+                                <msqrt>
+                                    <msup><mi>b</mi><mn>2</mn></msup>
+                                    <mo>−</mo>
+                                    <mn>4</mn><mi>a</mi><mi>c</mi>
+                                </msqrt>
+                            </mrow>
+                            <mrow> <mn>2</mn><mi>a</mi> </mrow>
+                        </mfrac>
+                    </mrow>
+                </math>
+            `
+        )
+    });
+    p1.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    p2.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" X-intercept point is x<sub>2</sub> :  " + "( " + p2.X().toFixed(4) + " , " + p2.Y() + ' )'); });
-    p2.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    p2.on('over', function (e) {
+        putEquationInOutputAndReRender(
+            `
+                <math>
+                    <mi>x</mi> <mo>=</mo>
+                    <mrow>
+                        <mfrac>
+                            <mrow>
+                                <mo>−</mo>
+                                <mi>b</mi>
+                                <mo>±</mo>
+                                <msqrt>
+                                    <msup><mi>b</mi><mn>2</mn></msup>
+                                    <mo>−</mo>
+                                    <mn>4</mn><mi>a</mi><mi>c</mi>
+                                </msqrt>
+                            </mrow>
+                            <mrow> <mn>2</mn><mi>a</mi> </mrow>
+                        </mfrac>
+                    </mrow>
+                </math>
+            `
+        )
+    });
+    p2.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    p3.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Y-intercept point is y<sub>1</sub> : ( " + p3.X() + " , " + p3.Y().toFixed(2) + ' )'); });
-    p3.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    p3.on('over', function (e) {
+        putEquationInOutputAndReRender(
+            `
+                <math>
+                    <mi>x</mi> <mo>=</mo>
+                    <mrow>
+                        <mfrac>
+                            <mrow>
+                                <mo>−</mo>
+                                <mi>b</mi>
+                                <mo>±</mo>
+                                <msqrt>
+                                    <msup><mi>b</mi><mn>2</mn></msup>
+                                    <mo>−</mo>
+                                    <mn>4</mn><mi>a</mi><mi>c</mi>
+                                </msqrt>
+                            </mrow>
+                            <mrow> <mn>2</mn><mi>a</mi> </mrow>
+                        </mfrac>
+                    </mrow>
+                </math>
+            `
+        )
+    });
+    p3.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    q.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Directrix (D) : y  = " + D.Y().toFixed(4)) });
-    q.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    q.on('over', function (e) {
+        putEquationInOutputAndReRender(
+            `
+                <math>
+                    <mi>x</mi> <mo>=</mo>
+                    <mrow>
+                        <mfrac>
+                            <mrow>
+                                <mo>−</mo>
+                                <mi>b</mi>
+                                <mo>±</mo>
+                                <msqrt>
+                                    <msup><mi>b</mi><mn>2</mn></msup>
+                                    <mo>−</mo>
+                                    <mn>4</mn><mi>a</mi><mi>c</mi>
+                                </msqrt>
+                            </mrow>
+                            <mrow> <mn>2</mn><mi>a</mi> </mrow>
+                        </mfrac>
+                    </mrow>
+                </math>
+            `
+        )
+    });
+    q.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    v.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Vertex (V) :  (" + v.X().toFixed(4) + " , " + v.Y().toFixed(4) + ')') });
-    v.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    v.on('over', function (e) {
+        putEquationInOutputAndReRender(
+            `
+                <math>
+                    <mi>x</mi> <mo>=</mo>
+                    <mrow>
+                        <mfrac>
+                            <mrow>
+                                <mo>−</mo>
+                                <mi>b</mi>
+                                <mo>±</mo>
+                                <msqrt>
+                                    <msup><mi>b</mi><mn>2</mn></msup>
+                                    <mo>−</mo>
+                                    <mn>4</mn><mi>a</mi><mi>c</mi>
+                                </msqrt>
+                            </mrow>
+                            <mrow> <mn>2</mn><mi>a</mi> </mrow>
+                        </mfrac>
+                    </mrow>
+                </math>
+            `
+        )
+    });
+    v.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
 
-    f.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Focus (F) : ( " + f.X().toFixed(4) + "  ,  " + f.Y().toFixed(4) + "  )") });
-    f.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    f.on('over', function (e) {
+        putEquationInOutputAndReRender(
+            `
+                <math>
+                    <mi>x</mi> <mo>=</mo>
+                    <mrow>
+                        <mfrac>
+                            <mrow>
+                                <mo>−</mo>
+                                <mi>b</mi>
+                                <mo>±</mo>
+                                <msqrt>
+                                    <msup><mi>b</mi><mn>2</mn></msup>
+                                    <mo>−</mo>
+                                    <mn>4</mn><mi>a</mi><mi>c</mi>
+                                </msqrt>
+                            </mrow>
+                            <mrow> <mn>2</mn><mi>a</mi> </mrow>
+                        </mfrac>
+                    </mrow>
+                </math>
+            `
+        )
+    });
+    f.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    L.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" The equation of parabola is : (x - (" + b.Value().toFixed(2) + '))<sup>2</sup> =' + '4(' + a.Value().toFixed(2) + ')' + '( y - (' + c.Value().toFixed(2) + ')') });
-    L.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    L.on('over', function (e) {
+        putEquationInOutputAndReRender(
+            `
+                <math>
+                    <mi>x</mi> <mo>=</mo>
+                    <mrow>
+                        <mfrac>
+                            <mrow>
+                                <mo>−</mo>
+                                <mi>b</mi>
+                                <mo>±</mo>
+                                <msqrt>
+                                    <msup><mi>b</mi><mn>2</mn></msup>
+                                    <mo>−</mo>
+                                    <mn>4</mn><mi>a</mi><mi>c</mi>
+                                </msqrt>
+                            </mrow>
+                            <mrow> <mn>2</mn><mi>a</mi> </mrow>
+                        </mfrac>
+                    </mrow>
+                </math>
+            `
+        )
+    });
+    L.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    AX.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Axis of symmetry :  x  =  " + f.X().toFixed(4)) });
-    AX.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    AX.on('over', function (e) {
+        putEquationInOutputAndReRender(
+            `
+                <math>
+                    <mi>x</mi> <mo>=</mo>
+                    <mrow>
+                        <mfrac>
+                            <mrow>
+                                <mo>−</mo>
+                                <mi>b</mi>
+                                <mo>±</mo>
+                                <msqrt>
+                                    <msup><mi>b</mi><mn>2</mn></msup>
+                                    <mo>−</mo>
+                                    <mn>4</mn><mi>a</mi><mi>c</mi>
+                                </msqrt>
+                            </mrow>
+                            <mrow> <mn>2</mn><mi>a</mi> </mrow>
+                        </mfrac>
+                    </mrow>
+                </math>
+            `
+        )
+    });
+    AX.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
 
     p1.label.setProperty({ fontSize: 20, strokeColor: '#03A89E' }),
@@ -888,36 +1141,82 @@ function StandardX() {
         l1 = b1.create('line', [[0.8, -8], [0.7, -8]], { fixed: true, color: 'blue' })
 
     //create notification on the graph  
-    p1.on('over', function (e) { document.getElementById('myOutput').innerHTML = "X- intesect point is x<sub>1</sub> : ( " + p1.X().toFixed(4) + ' , 0 )'; });
-    p1.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    p1.on('over', function (e) {
+        putEquationInOutputAndReRender(
+            `
+                <math>
+                    <mi>x</mi> <mo>=</mo>
+                    <mrow>
+                        <mfrac>
+                            <mrow>
+                                <mo>−</mo>
+                                <mi>b</mi>
+                                <mo>±</mo>
+                                <msqrt>
+                                    <msup><mi>b</mi><mn>2</mn></msup>
+                                    <mo>−</mo>
+                                    <mn>4</mn><mi>a</mi><mi>c</mi>
+                                </msqrt>
+                            </mrow>
+                            <mrow> <mn>2</mn><mi>a</mi> </mrow>
+                        </mfrac>
+                    </mrow>
+                </math>
+            `
+        )
+    });
+    p1.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    p4.on('over', function (e) { document.getElementById('myOutput').innerHTML = "X- intesect point is x<sub>1</sub> : ( " + p4.X().toFixed(4) + ' , 0 )'; });
-    p4.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    p4.on('over', function (e) {
+        putEquationInOutputAndReRender(
+            `
+                <math>
+                    <mi>x</mi> <mo>=</mo>
+                    <mrow>
+                        <mfrac>
+                            <mrow>
+                                <mo>−</mo>
+                                <mi>b</mi>
+                                <mo>±</mo>
+                                <msqrt>
+                                    <msup><mi>b</mi><mn>2</mn></msup>
+                                    <mo>−</mo>
+                                    <mn>4</mn><mi>a</mi><mi>c</mi>
+                                </msqrt>
+                            </mrow>
+                            <mrow> <mn>2</mn><mi>a</mi> </mrow>
+                        </mfrac>
+                    </mrow>
+                </math>
+            `
+        )
+    });
+    p4.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    p2.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Y-intercept point is Y<sub>1</sub> :  ( 0 , " + p2.Y().toFixed(4) + ' )'); });
-    p2.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    p2.on("over", function (e) { document.getElementById('myOutput').innerText = (" Y-intercept point is Y<sub>1</sub> :  ( 0 , " + p2.Y().toFixed(4) + ' )'); });
+    p2.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    p3.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Y-intercept point is y<sub>2</sub> : (  0 , " + p3.Y().toFixed(4) + ' )'); });
-    p3.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    p3.on("over", function (e) { document.getElementById('myOutput').innerText = (" Y-intercept point is y<sub>2</sub> : (  0 , " + p3.Y().toFixed(4) + ' )'); });
+    p3.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    q.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Directrix (D) : x  = " + D.Y().toFixed(4)) });
-    q.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    q.on("over", function (e) { document.getElementById('myOutput').innerText = (" Directrix (D) : x  = " + D.Y().toFixed(4)) });
+    q.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    v.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Vertex (V) :  (" + v.X().toFixed(4) + " , " + v.Y().toFixed(4) + ')') });
-    v.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    v.on("over", function (e) { document.getElementById('myOutput').innerText = (" Vertex (V) :  (" + v.X().toFixed(4) + " , " + v.Y().toFixed(4) + ')') });
+    v.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
 
-    f.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Focus (F) : ( " + f.X().toFixed(4) + "  ,  " + f.Y().toFixed(4) + "  )") });
-    f.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    f.on("over", function (e) { document.getElementById('myOutput').innerText = (" Focus (F) : ( " + f.X().toFixed(4) + "  ,  " + f.Y().toFixed(4) + "  )") });
+    f.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    L.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" The equation of parabola is : (y - (" + c.Value().toFixed(2) + '))<sup>2</sup> =' + '4(' + a.Value().toFixed(2) + ')' + '( x - (' + b.Value().toFixed(2) + '))') });
-    L.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    L.on("over", function (e) { document.getElementById('myOutput').innerText = (" The equation of parabola is : (y - (" + c.Value().toFixed(2) + '))<sup>2</sup> =' + '4(' + a.Value().toFixed(2) + ')' + '( x - (' + b.Value().toFixed(2) + '))') });
+    L.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    L1.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" The equation of parabola is : (y - (" + c.Value().toFixed(2) + '))<sup>2</sup> =' + '4(' + a.Value().toFixed(2) + ')' + '( x - (' + b.Value().toFixed(2) + '))') });
-    L1.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    L1.on("over", function (e) { document.getElementById('myOutput').innerText = (" The equation of parabola is : (y - (" + c.Value().toFixed(2) + '))<sup>2</sup> =' + '4(' + a.Value().toFixed(2) + ')' + '( x - (' + b.Value().toFixed(2) + '))') });
+    L1.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
-    AX.on("over", function (e) { document.getElementById('myOutput').innerHTML = (" Axis of symmetry :  y  =  " + f.Y().toFixed(4)) });
-    AX.on('out', function (e) { document.getElementById('myOutput').innerHTML = 'Click in other points'; });
+    AX.on("over", function (e) { document.getElementById('myOutput').innerText = (" Axis of symmetry :  y  =  " + f.Y().toFixed(4)) });
+    AX.on('out', function (e) { document.getElementById('myOutput').innerText = 'Click in other points'; });
 
     p1.label.setProperty({ fontSize: 20, strokeColor: '#03A89E' }),
         p2.label.setProperty({ fontSize: 20, strokeColor: '#0000FF' }),
@@ -939,4 +1238,10 @@ function dummy(number) {
     }
     return number
 }
+
+function putEquationInOutputAndReRender(equation) {
+    document.getElementById('myOutput').innerHTML = equation;
+    MathJax.typeset();
+}
+
 Parabola1();
