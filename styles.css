@@ -1,0 +1,46 @@
+:root {
+  font-size: 10px;
+}
+
+body {
+  margin: 15px 0;
+  background-color: rgb(161, 187, 187);
+  padding: 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 2rem;
+}
+
+#aboutSectionTitle {
+  text-align: center;
+  font-size: 4rem;
+}
+
+#namePartsSection {
+ 
+  display: flex;
+  justify-content: space-around;
+}
+
+#firstNamesSectionTitle{
+  font-size: 2.5rem;
+}
+
+#ulFirstNames {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 70px;
+  list-style-type: none;
+  line-height: 3.5rem;
+}
+
+#fullNamesContainer {
+  display: flex;
+  margin-left: 400px;
+  margin-top: 0%;
+  padding: auto;
+}
+input[type="text"][id^="fullName"] {
+  min-width: 50px;
+  font-size: 2.5rem;
+  margin: 1.5rem 3rem;
+}
