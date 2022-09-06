@@ -1,0 +1,53 @@
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css");
+:root {
+  font-size: 10px;
+}
+
+body {
+  margin: 15px 0;
+  background-color: rgb(161, 187, 187);
+  padding: 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 2rem;
+}
+
+#aboutSectionTitle {
+  text-align: center;
+  font-size: 4rem;
+}
+
+#namePartsSection {
+ 
+  display: flex;
+  justify-content: space-around;
+}
+
+#firstNamesSectionTitle{
+  font-size: 2.5rem;
+}
+
+#ulFirstNames {
+  font-size: 2.5rem;
+  color: green;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 70px;
+  grid-row-gap: 10px;
+  list-style-type: none;
+  line-height: 3.5rem;
+  padding: 10px;
+}
+
+#fullNamesContainer {
+  display: flex;
+  margin-left: 400px;
+  margin-top: 0%;
+  padding: auto;
+}
+input[type="text"][id^="fullName"] {
+  min-width: 50px;
+  font-size: 2rem;
+  margin: 1rem ;
+  width: 100px;
+  height: 25px;
+}
