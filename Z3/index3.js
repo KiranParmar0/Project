@@ -14,6 +14,7 @@ function createOptions() {
         listParent.appendChild(listElement)
     })
 }
+
 $(document).ready(function () {
     createOptions()
     generatePlaceholders();
@@ -122,6 +123,22 @@ function show() {
     }
 
 }
-function clearDrop() {
-    document.getElementById("myForm").reset();
+
+function clearDropTargets() {
+    ans.map((_, index) => {
+        let dropTargetId = "fullName" + ("0" + (index + 1).toString()).slice(-2)
+        console.log("drop target id is ", dropTargetId);
+        let dropTarget = document.getElementById(dropTargetId)
+        dropTarget.value = ""
+    })
+}
+
+function clearUserSolution() {
+    arr = []
+}
+
+function reset() {
+    createOptions()
+    clearDropTargets()
+    clearUserSolution()
 }
