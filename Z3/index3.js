@@ -137,8 +137,14 @@ function clearUserSolution() {
     arr = []
 }
 
+function deleteExistingOptions() {
+    $(`#ulFirstNames`).empty()
+}
+
 function reset() {
+    deleteExistingOptions()
     createOptions()
     clearDropTargets()
     clearUserSolution()
+    makeNamePartListItemsDraggable($("#ulFirstNames"));
 }
