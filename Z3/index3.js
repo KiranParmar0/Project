@@ -2,7 +2,7 @@ let $input = $("input[type=\"text\"][id^=\"fullName\"]");
 
 var ans = ['small', 'windy', 'blue', 'fresh', 'happy', 'cold'],
     options = ['small', 'windy', 'blue', 'fresh', 'happy', 'cold'],
-    arr = []
+    arr = [undefined, undefined, undefined, undefined, undefined, undefined]
 
 function createOptions() {
     let baseId = "ans"
@@ -64,6 +64,7 @@ function makeFullNameTextBoxesAsDropTargets() {
         let parentId = textPartsArray[0];
         let index = textPartsArray[1];
         let namePart = textPartsArray[2];
+        let solutionIndex = parseInt(event.currentTarget.id.substring(8)) - 1;
 
         let existingText = $(this).val().trim();
 
@@ -77,7 +78,8 @@ function makeFullNameTextBoxesAsDropTargets() {
             return false
         }
 
-        arr.push(namePart)
+        arr[solutionIndex] = namePart
+
         for (var i = 0; i < 5; i++) {
 
             console.log(arr[i]);
@@ -133,7 +135,7 @@ function clearDropTargets() {
 }
 
 function clearUserSolution() {
-    arr = []
+    arr = [undefined, undefined, undefined, undefined, undefined, undefined]
 }
 
 function deleteExistingOptions() {
