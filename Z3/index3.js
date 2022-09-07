@@ -1,15 +1,21 @@
 let $input = $("input[type=\"text\"][id^=\"fullName\"]");
 
-var a1 = document.getElementById('ans1').innerText = 'small',
-    a2 = document.getElementById('ans2').innerText = 'windy',
-    a3 = document.getElementById('ans3').innerText = 'blue',
-    a4 = document.getElementById('ans4').innerText = 'fresh',
-    a5 = document.getElementById('ans5').innerText = 'happy',
-    a6 = document.getElementById('ans6').innerText = 'cold',
+var ans = ['small', 'windy', 'blue', 'fresh', 'happy', 'cold'],
+    options = ['small', 'windy', 'blue', 'fresh', 'happy', 'cold'],
+    arr = []
 
-    ans = ['small', 'windy', 'blue', 'fresh', 'happy', 'cold']
-arr = []
+function createOptions() {
+    let baseId = "ans"
+    let listParent = document.getElementById("ulFirstNames")
+    options.map((element, index) => {
+        let listElement = document.createElement("li")
+        listElement.innerText = element
+        listElement.id = baseId + index.toString()
+        listParent.appendChild(listElement)
+    })
+}
 $(document).ready(function () {
+    createOptions()
     generatePlaceholders();
     makeNamePartListItemsDraggable($("#ulFirstNames"));
     makeFullNameTextBoxesAsDropTargets();
