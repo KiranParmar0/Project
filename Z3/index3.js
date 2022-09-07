@@ -127,7 +127,6 @@ function show() {
 function clearDropTargets() {
     ans.map((_, index) => {
         let dropTargetId = "fullName" + ("0" + (index + 1).toString()).slice(-2)
-        console.log("drop target id is ", dropTargetId);
         let dropTarget = document.getElementById(dropTargetId)
         dropTarget.value = ""
     })
