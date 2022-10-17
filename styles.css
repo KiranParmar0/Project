@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.webgl
+{
+  position: fixed;
+  top: 0;
+  left:0;
+  outline: none;
+}
+#threeJsRenderer {
+  left:30px;
+  width: 500px;
+}
+
+#parent {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  border: 1px solid #000000;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#headingAndContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.Ibutton{
+  background: #f20606;
+}
+/* bg color */
+#heading {
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: #04035E;    
+  background: #ADEEA0;
+}
+
+/* bg color */
+#rendererParent {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border: 1px solid #000000;
+}
+
+/* bgcolor */
+#detailedInfo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid #000000;
+  font-size: 17px;
+  color: #111111;
+  background: #AFD3FC;
+}
+
+/* bgcolor */
+#infoDropdown {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#graph {
+  height: calc(100vmin - 5.5em);
+  aspect-ratio:3px;
+}
+
+#graph1 {
+  float: right;
+  height: calc(100vmin - 3em);
+  max-width:calc(75vmin );
+  aspect-ratio:2;
+}
+#graph2 {
+
+  height: calc(100vmin - 3em);
+  max-width:calc(75vmin );
+  aspect-ratio:2;
+}
